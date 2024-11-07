@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"Step 1: Run This script first"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript Async="1">[ENABLE]
+
+aobscan(Camera,DF D8 10 00 FF FF FF FF)
+registersymbol(Camera)
+
+[DISABLE]
+unregistersymbol(Camera)
+
+
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>5</ID>
+          <Description>"Step 2: When Step 1 is finished lock this and set value to CUSTOM (F1 toggle)"</Description>
+          <Options moActivateChildrenAsWell="1"/>
+          <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">1383391:CUSTOM
+*:
+</DropDownList>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Camera</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>112</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>112</Key>
+              </Keys>
+              <Value>1383391</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>7</ID>
+      <Description>"Step 3: Run this script after locking above to CUSTOM"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript Async="1">[ENABLE]
+
+aobscan(Custom_Camera,DF 1B 15 00 0A 00 00 00 AA)
+registersymbol(Custom_Camera)
+
+[DISABLE]
+
+Camera+08:
+db AA 61 1C 3F 00 00 80 3E 00 00 80 3E CD CC 4C BE 00 00 40 41 00 00 40 41 6B 9A 91 41 00 00 00 00 00 00 00 00 00 00 00 00 9A 99 19 3F CD CC AC 3F 33 33 93 3F 00 00 60 40 00 00 60 40 00 00 00 00 00 00 20 41 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 16 43 00 00 C0 42 00 00 80 3F 00 00 00 00
+
+unregistersymbol(Custom_Camera)
+
+
+
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Activate</Action>
+          <Keys/>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>41</ID>
+          <Description>"Custom Camera (ignore)"</Description>
+          <ShowAsHex>1</ShowAsHex>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Custom_Camera</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>38</ID>
+      <Description>"Presets"</Description>
+      <Options moManualExpandCollapse="1"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>36</ID>
+          <Description>"Close Zoom (F2)"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>/*
+- This is a preset template for creating custom camera settings (Close Zoom).
+- To create your own change the green float values to adjust the camera.
+- When finished, in the menu bar, select File -&gt; Assign to current cheat table.
+- You will see it in the cheat table as "Auto Assemble script"
+- Rename it to what you like.
+- You can now activate it to set the camera to your preset values (Can only be done after the "Custom Camera" script has been enabled).
+- Set/Edit hotkeys by right clicking the script and selecting "Set/Change Hotkeys." Tick "Deactivate on Release."
+*/
+[ENABLE]
+
+
+Custom_Camera+08:
+
+dd (float)0.6108652353 //FOV (Change this value to see more or less of the world at the same zoom level).
+
+Custom_Camera+14:
+
+dd (float)0.1000000015 //Camera Height (Change this value to move the camera directly up and down. Can be negative or positive).
+
+Custom_Camera+18:
+
+dd (float)9.56000042 //Vertical Angle FOV 1 (Change this value to angle and zoom the camera in the vertical axis. Keep same as FOV 2 unless rotating camera horizontally).
+
+Custom_Camera+1C:
+
+dd (float)9.56000042 //Vertical Angle FOV 2 (Change this value to angle and zoom the camera in the vertical axis. Keep same as FOV 1 unless rotating camera horizontally).
+
+Custom_Camera+20:
+
+dd (float)14.5 //Verticle Angle (Change this value to angle the camera in the vertical axis).
+
+Custom_Camera+34:
+
+dd (float)0.7799999714 //Zoom Level (Change this value to zoom in/out at the given FOV).
+
+Custom_Camera+68:
+
+dd (float)0 //Fog (Set this value to 0 to remove fog).
+
+
+
+[DISABLE]
+
+
+
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey OnlyWhileDown="1">
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>113</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>40</ID>
+          <Description>"Medium Zoom (F3)"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>/*
+- This is a preset template for creating custom camera settings (Medium Zoom).
+- To create your own change the green float values to adjust the camera.
+- When finished, in the menu bar, select File -&gt; Assign to current cheat table.
+- You will see it in the cheat table as "Auto Assemble script"
+- Rename it to what you like.
+- You can now activate it to set the camera to your preset values (Can only be done after the "Custom Camera" script has been enabled).
+- Set/Edit hotkeys by right clicking the script and selecting "Set/Change Hotkeys." Tick "Deactivate on Release."
+*/
+[ENABLE]
+
+
+Custom_Camera+08:
+
+dd (float)0.6108652353 //FOV (Change this value to see more or less of the world at the same zoom level).
+
+Custom_Camera+14:
+
+dd (float)-0.200000003 //Camera Height (Change this value to move the camera directly up and down. Can be negative or positive).
+
+Custom_Camera+18:
+
+dd (float)9.56000042 //Vertical Angle FOV 1 (Change this value to angle and zoom the camera in the vertical axis. Keep same as FOV 2 unless rotating camera horizontally).
+
+Custom_Camera+1C:
+
+dd (float)9.56000042 //Vertical Angle FOV 2 (Change this value to angle and zoom the camera in the vertical axis. Keep same as FOV 1 unless rotating camera horizontally).
+
+Custom_Camera+20:
+
+dd (float)14.5 //Verticle Angle (Change this value to angle the camera in the vertical axis).
+
+Custom_Camera+34:
+
+dd (float)1.200000048 //Zoom Level (Change this value to zoom in/out at the given FOV).
+
+Custom_Camera+68:
+
+dd (float)0 //Fog (Change this value to 0 to remove fog).
+
+
+
+[DISABLE]
+
+
+
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey OnlyWhileDown="1">
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>114</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>39</ID>
+          <Description>"Large Zoom (F4)"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>/*
+- This is a preset template for creating custom camera settings (Large Zoom).
+- To create your own change the green float values to adjust the camera.
+- When finished, in the menu bar, select File -&gt; Assign to current cheat table.
+- You will see it in the cheat table as "Auto Assemble script"
+- Rename it to what you like.
+- You can now activate it to set the camera to your preset values (Can only be done after the "Custom Camera" script has been enabled).
+- Set/Edit hotkeys by right clicking the script and selecting "Set/Change Hotkeys." Tick "Deactivate on Release."
+*/
+[ENABLE]
+
+
+Custom_Camera+08:
+
+dd (float)0.6108652353 //FOV (Change this value to see more or less of the world at the same zoom level).
+
+Custom_Camera+14:
+
+dd (float)-0.200000003 //Camera Height (Change this value to move the camera directly up and down. Can be negative or positive).
+
+Custom_Camera+18:
+
+dd (float)12 //Vertical Angle FOV 1 (Change this value to angle and zoom the camera in the vertical axis. Keep same as FOV 2 unless rotating camera horizontally).
+
+Custom_Camera+1C:
+
+dd (float)12 //Vertical Angle FOV 2 (Change this value to angle and zoom the camera in the vertical axis. Keep same as FOV 1 unless rotating camera horizontally).
+
+Custom_Camera+20:
+
+dd (float)18.2003994 //Verticle Angle (Change this value to angle the camera in the vertical axis).
+
+Custom_Camera+34:
+
+dd (float)1.350000024 //Zoom Level (Change this value to zoom in/out at the given FOV).
+
+Custom_Camera+68:
+
+dd (float)0 //Fog (Change this value to 0 to remove fog).
+
+
+
+[DISABLE]
+
+
+
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey OnlyWhileDown="1">
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>115</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>37</ID>
+      <Description>"Custom Camera Values"</Description>
+      <Options moManualExpandCollapse="1"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>8</ID>
+          <Description>"FOV (Shift+numeric +/-)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>Custom_Camera+8</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>16</Key>
+                <Key>109</Key>
+              </Keys>
+              <Value>0.05</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>16</Key>
+                <Key>107</Key>
+              </Keys>
+              <Value>0.05</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>31</ID>
+          <Description>"Zoom Level (numeric +/-)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>Custom_Camera+34</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>107</Key>
+              </Keys>
+              <Value>0.05</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>109</Key>
+              </Keys>
+              <Value>0.05</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11</ID>
+          <Description>"Camera Height (Shift+Up/Down Arrow)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>Custom_Camera+14</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>16</Key>
+                <Key>38</Key>
+              </Keys>
+              <Value>0.25</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>16</Key>
+                <Key>40</Key>
+              </Keys>
+              <Value>0.25</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12</ID>
+          <Description>"Vertical Angle FOV 1 (Ctrl+Up/Down Arrow)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>Custom_Camera+18</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>38</Key>
+              </Keys>
+              <Value>0.25</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>40</Key>
+              </Keys>
+              <Value>0.25</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13</ID>
+          <Description>"Vertical Angle FOV 2 (Ctrl+Up/Down Arrow)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>Custom_Camera+1C</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>38</Key>
+              </Keys>
+              <Value>0.25</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>40</Key>
+              </Keys>
+              <Value>0.25</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>14</ID>
+          <Description>"Vertical Angle (UP/DOWN Arrow)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>Custom_Camera+20</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>40</Key>
+              </Keys>
+              <Value>0.5</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>38</Key>
+              </Keys>
+              <Value>0.5</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>30</ID>
+          <Description>"Remove Fog == 0"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>Custom_Camera+68</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+  <Comments>Info about this table:
+</Comments>
+</CheatTable>

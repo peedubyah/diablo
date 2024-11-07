@@ -1,0 +1,24 @@
+; Declare a toggle variable
+toggle := false
+
+; Middle mouse button toggles the script on/off
+MButton::
+    toggle := !toggle
+    if (toggle)
+    {
+        SoundBeep, 1000, 200  ; Beep sound for "on" (higher pitch)
+    }
+    else
+    {
+        SoundBeep, 500, 200   ; Beep sound for "off" (lower pitch)
+    }
+return
+
+; When the script is toggled on, pressing the right mouse button also sends "a" and "r"
+RButton::
+    if (toggle)
+    {
+        Send, {a}{r}  ; Send "a" and "r"
+    }
+    Send, {RButton}  ; Normal right-click action
+return
