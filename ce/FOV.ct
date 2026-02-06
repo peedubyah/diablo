@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable>
+  <CheatEntries>
+
+    <!-- Initialization Script -->
+    <CheatEntry>
+      <Description>"Click Me First"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>
+[ENABLE]
+// AOB Scan for Scene Address (Camera Unlock)
+aobscan(SceneAddress, DF D8 10 00 FF FF FF FF)
+registersymbol(SceneAddress)
+
+[DISABLE]
+unregistersymbol(SceneAddress)
+      </AssemblerScript>
+    </CheatEntry>
+
+    <!-- Scene Lock Group -->
+    <CheatEntry>
+      <Description>"Scene Lock"</Description>
+      <Options>GroupHeader</Options>
+      <CheatEntries>
+        <CheatEntry>
+          <Description>"Click Me Second"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>SceneAddress</Address>
+          <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">
+            1526:Level 1
+            495683:Level 2
+            1048905:Level 3
+            1388050:Level 4
+            67852:Level 5
+            185952:Level 6
+            1093251:Level 7
+            1383391:Level 8
+            *:
+          </DropDownList>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+
+  </CheatEntries>
+
+  <UserdefinedSymbols>
+    <Symbol>
+      <Name>SceneAddress</Name>
+      <Address>SceneAddress</Address>
+    </Symbol>
+  </UserdefinedSymbols>
+</CheatTable>
